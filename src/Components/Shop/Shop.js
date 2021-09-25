@@ -12,6 +12,9 @@ const Shop = () => {
         here, Product component and cart component both are child component. So we can not pass the product into the child component. thats why we added useState method in the Shop component(Parent component)
     */
     const [cart, setCart] = useState([]);
+    // another useState method for products to be rendered on the UI
+    const [displayProducts, setDisplayProducts] = useState([]);
+
     useEffect(() =>{
         fetch('./products.JSON')
             .then(res => res.json())
@@ -21,8 +24,6 @@ const Shop = () => {
             }) // set the data into setProducts state. 
     }, [])
 
-    // another useState method for products to be rendered on the UI
-    const [displayProducts, setDisplayProducts] = useState([]);
 
     // applying useEffect for setting local storage data. 
     useEffect(() => {
@@ -49,6 +50,7 @@ const Shop = () => {
         addToDb(product.key)
     }
 
+    // handling search option.
     const handleSearch = event => {
         const searchText = event.target.value;
 
