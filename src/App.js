@@ -4,6 +4,7 @@ import Shop from './Components/Shop/Shop';
 import { BrowserRouter as Router,  Switch,  Route,  Link} from "react-router-dom";
 import Inventory from './Components/Inventory/Inventory';
 import NotFound from './Components/NotFound/NotFound';
+import OrderReview from './Components/OrderReview/OrderReview';
 function App() {
   return (
     <div>
@@ -19,8 +20,9 @@ function App() {
           <Route exact path="/inventory">
             <Inventory></Inventory>
           </Route>
-
-
+          <Route exact path="/orders">
+            <OrderReview></OrderReview>
+          </Route>
 
           <Route  path='*'>
             <NotFound></NotFound>
