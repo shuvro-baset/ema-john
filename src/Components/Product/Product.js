@@ -1,12 +1,13 @@
 import React from 'react';
-import './Product.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import './Product.css';
 import Rating from 'react-rating';
 
 const Product = (props) => {
-    // destructuring products property.
+    // console.log(props);
     const { name, img, seller, price, stock, star } = props.product;
+
     return (
         <div className="product">
             <div>
@@ -24,7 +25,7 @@ const Product = (props) => {
                     readonly></Rating>
                 <br />
                 <button
-                    onClick={() => props.handleAddToCart(props.product)} // onClick eventHandler function calling and passing param as product
+                    onClick={() => props.handleAddToCart(props.product)}
                     className="btn-regular"
                 ><FontAwesomeIcon icon={faShoppingCart} /> add to cart</button>
             </div>

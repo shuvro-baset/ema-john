@@ -1,31 +1,34 @@
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
-import Header from './Components/Header/Header';
-import Shop from './Components/Shop/Shop';
-import { BrowserRouter as Router,  Switch,  Route,  Link} from "react-router-dom";
-import Inventory from './Components/Inventory/Inventory';
-import NotFound from './Components/NotFound/NotFound';
-import OrderReview from './Components/OrderReview/OrderReview';
+import Header from './components/Header/Header';
+import Inventory from './components/Inventory/Inventory';
+import NotFound from './components/NotFound/NotFound';
+import OrderReview from './components/OrderReview/OrderReview';
+import PlaceOrder from './components/PlaceOrder/PlaceOrder';
+import Shop from './components/Shop/Shop';
+
 function App() {
   return (
     <div>
       <Router>
-      <Header></Header>
-
+        <Header></Header>
         <Switch>
           <Route exact path="/">
             <Shop></Shop>
           </Route>
-          <Route exact path="/shop">
+          <Route path="/shop">
             <Shop></Shop>
           </Route>
-          <Route exact path="/inventory">
-            <Inventory></Inventory>
-          </Route>
-          <Route exact path="/orders">
+          <Route path="/review">
             <OrderReview></OrderReview>
           </Route>
-
-          <Route  path='*'>
+          <Route path="/inventory">
+            <Inventory></Inventory>
+          </Route>
+          <Route path="/placeorder">
+            <PlaceOrder></PlaceOrder>
+          </Route>
+          <Route path="*">
             <NotFound></NotFound>
           </Route>
         </Switch>
